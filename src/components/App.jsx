@@ -1,6 +1,6 @@
 import toast, { Toaster } from 'react-hot-toast';
 import { Component } from 'react';
-import { SearchBar } from './Searchbar/SearchBar';
+import { SearchBar } from './SearchBar/SearchBar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
@@ -23,7 +23,6 @@ export class App extends Component {
     ) {
       this.setState({ loading: true, error: false });
       try {
-        // запит на бекенд
         const response = await requestImages(
           this.state.keyword,
           this.state.page
