@@ -1,10 +1,10 @@
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Component } from 'react';
 import { Formik } from 'formik';
-import { SearchBarStyled, Button, ButtonLabel, StyledForm, StyledField, Label } from './Searchbar.styled';
+import css from './SearchBar.module.css';
+import { SearchBarStyled, Button, ButtonLabel, StyledForm, StyledField, Label } from './SearchBar.styled';
 
 const initialValue = { keyword: '' };
-
 export class SearchBar extends Component {
   handleSubmit = (values, { resetForm }) => {
     this.props.onSubmit(values.keyword.trim());
@@ -16,7 +16,7 @@ export class SearchBar extends Component {
         <Formik initialValues={initialValue} onSubmit={this.handleSubmit}>
           <StyledForm autoComplete="off">
             <Button type="submit">
-              <AiOutlineSearch size={25} />
+              <AiOutlineSearch className={css.svg} size={25} />
               <ButtonLabel>Search</ButtonLabel>
             </Button>
             <Label htmlFor="keyword">

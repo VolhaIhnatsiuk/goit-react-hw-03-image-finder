@@ -76,7 +76,3 @@ export const StyledField = styled(Field)`
         font-size: 18px;
     }
 `
-
-// .svg {
-//   color: grey;
-// }
