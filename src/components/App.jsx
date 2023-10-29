@@ -1,6 +1,5 @@
 import toast, { Toaster } from 'react-hot-toast';
 import { Component } from 'react';
-// import { SearchBar } from './SearchBar/SearchBar';
 import { SearchBar } from './SearchBar/SearchBar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Button } from './Button/Button';
