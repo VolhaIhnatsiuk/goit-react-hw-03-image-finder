@@ -1,7 +1,7 @@
 import toast, { Toaster } from 'react-hot-toast';
 import { Component } from 'react';
 // import { SearchBar } from './SearchBar/SearchBar';
-import { SearchBar } from './Searchar/SearchBar';
+import { Searchar } from './Searchar/Searchar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
@@ -62,7 +62,7 @@ export class App extends Component {
     const { images, error, loading, page, totalPages } = this.state;
     return (
       <>
-        <SearchBar onSubmit={this.handleSubmit} />
+        <Searchar onSubmit={this.handleSubmit} />
         {error && <span className="errorMessage">Something went wrong!</span>}
         <ImageGallery imagesArray={images} onClick={this.openModal} />
         {loading && <Loader />}

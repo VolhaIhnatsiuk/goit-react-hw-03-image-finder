@@ -2,7 +2,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { Component } from 'react';
 import { Formik } from 'formik';
 import css from './SearchBar.module.css';
-import { SearchBarStyled, Button, ButtonLabel, StyledForm, StyledField, Label } from './SearchBar.styled';
+import { SearchBarStyled, Button, ButtonLabel, StyledForm, StyledField, Label } from './Searchar.styled';
 
 const initialValue = { keyword: '' };
 export class SearchBar extends Component {
