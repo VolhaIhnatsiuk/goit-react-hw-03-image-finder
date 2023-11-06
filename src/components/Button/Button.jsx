@@ -1,15 +1,7 @@
-import { ButtonWrapper } from "./Button.styled";
+import { BtnLoadMore } from "./Button.styled"
 
-export function Button({ onClick }) {
-  return (
-    <ButtonWrapper>
-      <Button
-        type="button"
-        name="load"
-        onClick={onClick}
-      >
-        Load more
-      </Button>
-    </ButtonWrapper>
-  );
+export const ButtonLoadMore = ({onLoadMore}) => {
+	return (
+		<BtnLoadMore type="button" onClick={()=>onLoadMore()}>Load more</BtnLoadMore>
+	)
 }

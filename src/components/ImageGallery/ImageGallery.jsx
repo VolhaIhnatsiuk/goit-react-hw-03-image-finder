@@ -1,12 +1,18 @@
-import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
-import { Gallery } from './ImageGallery.styled';
+import { ImageGalleryItem } from "components/ImageGalleryItem/ImageGalleryItem";
+import { Gallery, GalleryItem } from "./ImageGallery.styled";
 
-export function ImageGallery({ imagesArray }) {
-  return (
-    <Gallery>
-      {imagesArray.map(img => (
-        <ImageGalleryItem key={img.id} image={img} />
-      ))}
-    </Gallery>
-  );
-}
+export const ImageGallery = ({ gallery }) => {
+	return (
+	
+		<Gallery>
+			{gallery.map(({ id, webformatURL, largeImageURL, tags }) => (
+				<GalleryItem key={id}>
+					<ImageGalleryItem
+						webformatURL={webformatURL}
+						largeImageURL={largeImageURL}
+						tags={tags} />
+				</GalleryItem>
+			))}
+		</Gallery>
+	);
+};

@@ -1,77 +1,63 @@
+import { ErrorMessage, Field, Form } from "formik";
 import styled from "styled-components";
-import { Form, Field } from 'formik';
 
-export const SearchBarStyled = styled.header`
-  top: 0;
-  left: 0;
-  position: sticky;
-  z-index: 100;
+export const SearchForm = styled(Form)`
+  position: relative;
+`
+
+export const Header = styled.div`
+  position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 55px;
+	background-color: #00aeff;
+	z-index: 1;
+`
+
+export const FormLabel = styled.label`
+  font-size: 20px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+`
+
+export const FieldInput = styled(Field)`
+  width: 300px;
+	min-height: 35px;
+	padding-left: 15px;
+	border: 1px solid rgba(46, 47, 66, 0.4);
+	border-radius: 4px;
+	outline: transparent;
+	transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	&:hover,
+	&:focus {
+		border-color: #4d5ae5;
+		}
+`
+export const SearchBtn = styled.button`
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 64px;
-  padding-right: 24px;
-  padding-left: 24px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  color: #fff;
-  background-color: #3f51b5;
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  padding: 4px 15px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+		border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+		background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	&:hover{
+			color: #000000;
+			background-color: #9adfff;
+			border: 1px solid transparent;
+			cursor: pointer;
+		}
 `
-export const StyledForm = styled(Form)`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 600px;
-  background-color: #fff;
-  border-radius: 3px;
-  overflow: hidden;
-`
-export const Button = styled.button`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 48px;
-    height: 48px;
-    border: 0;
-    background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg');
-    background-size: 40%;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.6;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    outline: none;
-     &:hover {
-      opacity: 1};
-`
-export const ButtonLabel = styled.span`
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    clip-path: inset(50%);
-    border: 0;
-`
-export const Label = styled.label`
-    width: 500px;
-`
-export const StyledField = styled(Field)`
-    display: inline-block;
-    width: 100%;
-    height: 30px;
-    font: inherit;
-    font-size: 20px;
-    border: none;
-    outline: none;
-    padding-left: 4px;
-    padding-right: 4px;
-    ::placeholder {
-        font: inherit;
-        font-size: 18px;
-    }
+export const ErrMessage = styled(ErrorMessage)`
+  margin-bottom: 20px;
 `

@@ -1,36 +1,35 @@
-import { AiOutlineSearch } from 'react-icons/ai';
-import { Component } from 'react';
 import { Formik } from 'formik';
-import css from './SearchBar.module.css';
-import { SearchBarStyled, Button, ButtonLabel, StyledForm, StyledField, Label } from './SearchBar.styled';
+import { FieldInput, FormLabel, Header, SearchBtn, SearchForm } from './SearchBar.styled';
+import toast from 'react-hot-toast';
+import { ImSearch } from "react-icons/im";
 
-const initialValue = { keyword: '' };
-export class SearchBar extends Component {
-  handleSubmit = (values, { resetForm }) => {
-    this.props.onSubmit(values.keyword.trim());
-    resetForm();
-  };
-  render() {
-      return (
-      <SearchBarStyled>
-        <Formik initialValues={initialValue} onSubmit={this.handleSubmit}>
-          <StyledForm autoComplete="off">
-            <Button type="submit">
-              <AiOutlineSearch className={css.svg} size={25} />
-              <ButtonLabel>Search</ButtonLabel>
-            </Button>
-            <Label htmlFor="keyword">
-              <StyledField
-                type="text"
-                autoComplete="off"
-                autoFocus
-                placeholder="Search images and photos"
-                name="keyword"
-              />
-            </Label>
-          </StyledForm>
-        </Formik>
-      </SearchBarStyled>
-    );
-  }
-}
+export const SearchBar = ({ onAddSearchQuery }) => {
+	return (
+		<Header>
+			<Formik
+				initialValues={{
+					searchQuery: '',
+				}}
+				onSubmit={(value, actions) => {
+					if (value.searchQuery === '') {
+						toast.error('Please fill in the search field.', {
+							style: {
+								fontSize: '18px',
+								padding: '16px',
+							},
+						})
+					} else {
+						onAddSearchQuery(value);
+						actions.resetForm();
+					};
+				}}
+			>
+				<SearchForm>
+					<FormLabel htmlFor="searchQuery"></FormLabel>
+					<FieldInput id="searchQuery" name="searchQuery" placeholder="Search images and photos"/>
+					<SearchBtn type="submit"><ImSearch/></SearchBtn>
+				</SearchForm>
+			</Formik>
+		</Header>
+	);
+};
